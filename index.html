@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="content bg-zinc-800 flex flex-col min-h-screen">
+        <div class="header bg-zinc-800 p-5">
+            <h1 class="text-white text-2xl font-semibold flex gap-5"><img src="./images/icon.svg" class="h-10 w-10">The "Get It Done!" List</h1>
+        </div>
+        <div class="containerDisplaySidebar flex flex-1 sm:flex-row">
+            <div class="sideBar bg-white pt-10"> 
+                <div class="selectDisplay flex flex-col gap-3 pb-5 ">
+                    <button class="inbox flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/main.svg" class="h-10 w-10">Inbox</button>
+                    <button class="today flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/today.svg" class="h-10 w-10">Today</button>
+                    <button class="thisWeek flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/thisWeek.svg" class="h-10 w-10">This Week</button>
+                    <button class="completed flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/complete.svg" class="h-10 w-10">Completed</button>
+                </div>
+                <div class="projects">
+                    <div class="createProjectBtn flex flex-col"> 
+                        <img src="./images/dottedLine.svg" class="h-10 w-50 pb-1"/>                 
+                        <button onClick="clickedCreateProject()" class="newProjectBtn flex gap-3 items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
+                    </div>
+                </div>
+            </div>
+           
+                
+            <!-- <div class="createProjectPopup">
+                <div class="projectPopup" id="popupProject">
+                    <form class="projFormContainer">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder="What is your project?" name="title" required>
+                        <label for="details">Details</label>
+                        <input type="text" id="details" placeholder="Optional" name="details" optional>
+                        <button type="submit" class="projBtn">Create</button>
+                        <button type="button" class="projBtnCancel" onClick="closeForm()">Cancel</button>
+                    </form>
+                </div>
+            </div> -->
+
+        <!-- <div class="projectBody"></div> -->     
+            <div class="display bg-slate-50 flex-1">
+                <div class="selectedDisplay pt-5">
+                    <!-- h2? Display the title of the button selected in div selectDisplay -->
+
+                    <button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300" onClick="addTask()">Add Task</button>
+                    <div class="taskBody"></div>    
+                </div>
+            </div> 
+        </div>
+        <div class="footer flex gap-2 p-3 bg-zinc-800 mx-auto">
+            <span class="text-white text-sm">Copyright &copy 2023 RaybGomez</span> 
+            <a href="https://github.com/raybgomez" target="_blank"><img src="./images/github.svg" class="h-5 w-5 hover:rotate-[360deg] hover:scale-125 ease-in-out duration-300"/>
+            </a> 
+        </div>
+    </div>
+    <script defer src="main.js"></script>
+</body>
+</html>
+<!-- SVGs from https://www.svgrepo.com/  and www.github.com-->
