@@ -16,36 +16,35 @@
             <h1 class="text-white text-2xl font-semibold flex gap-5"><img src="./images/icon.svg" class="h-10 w-10">The "Get It Done!" List</h1>
         </div>
         <div class="containerDisplaySidebar flex flex-1 sm:flex-row">
-            <div class="sideBar bg-white pt-10"> 
-                <div class="selectDisplay flex flex-col gap-3 pb-5 ">
-                    <button class="inbox flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/main.svg" class="h-10 w-10">Inbox</button>
-                    <button class="today flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/today.svg" class="h-10 w-10">Today</button>
-                    <button class="thisWeek flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/thisWeek.svg" class="h-10 w-10">This Week</button>
-                    <button class="completed flex gap-3 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/complete.svg" class="h-10 w-10">Completed</button>
+            <div class="sideBar bg-white pt-3"> 
+                <div class="selectDisplay flex flex-col gap-1 pb-3 ">
+                    <button class="inbox flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/main.svg" class="h-10 w-10">Inbox</button>
+                    <button class="today flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/today.svg" class="h-10 w-10">Today</button>
+                    <button class="thisWeek flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/thisWeek.svg" class="h-10 w-10">This Week</button>
+                    <button class="completed flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/complete.svg" class="h-10 w-10">Completed</button>
                 </div>
                 <div class="projects">
                     <div class="createProjectBtn flex flex-col"> 
-                        <img src="./images/dottedLine.svg" class="h-10 w-50 pb-1"/>                 
-                        <button onClick="clickedCreateProject()" class="newProjectBtn flex gap-3 items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
+                        <h2 class="font-semibold text-lg mx-auto pb-3">Projects</h2>                
+                        <button class="newProjectBtn flex gap-3 items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
+                        <!-- <div class="projectBody"></div>  -->
+                    </div>
+                    <div class="createProjectPopup relative text-center w-full" >
+                        <div class="projectPopup hidden fixed -translate-x-1/2 translate-y-1/3 left-1/2 top-1/4 outline-2 outline-zinc-800 z-10" id="popupProject">
+                            <form class="projFormContainer max-w-sm p-5 bg-white">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" placeholder="What is your project?" name="title" class="w-full p-4 outline-none rounded-lg bg-slate-400" required>
+                                <label for="details">Details</label>
+                                <input type="text" id="details" placeholder="Optional" name="details" class="w-full p-4 outline-none rounded-lg bg-slate-400" optional>
+                                <button type="submit" class="projBtnSubmit ease-in-out duration-300 group block mx-auto rounded-lg p-6 bg-green-600 text-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:scale-125">Create</button>
+                                <button type="button" class="projBtnCancel ease-in-out duration-300 group block mx-auto rounded-lg p-6 bg-red-500 text-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:scale-125" onClick="closeForm()">Cancel</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-           
+            </div>           
                 
-            <!-- <div class="createProjectPopup">
-                <div class="projectPopup" id="popupProject">
-                    <form class="projFormContainer">
-                        <label for="title">Title</label>
-                        <input type="text" id="title" placeholder="What is your project?" name="title" required>
-                        <label for="details">Details</label>
-                        <input type="text" id="details" placeholder="Optional" name="details" optional>
-                        <button type="submit" class="projBtn">Create</button>
-                        <button type="button" class="projBtnCancel" onClick="closeForm()">Cancel</button>
-                    </form>
-                </div>
-            </div> -->
-
-        <!-- <div class="projectBody"></div> -->     
+               
             <div class="display bg-slate-50 flex-1">
                 <div class="selectedDisplay pt-5">
                     <!-- h2? Display the title of the button selected in div selectDisplay -->
@@ -61,7 +60,8 @@
             </a> 
         </div>
     </div>
+    <script src="../src/Modules/form.js"></script>
     <script defer src="main.js"></script>
 </body>
 </html>
-<!-- SVGs from https://www.svgrepo.com/  and www.github.com-->
+<!-- SVGs from https://www.svgrepo.com/  and www.github.com/logos-->
