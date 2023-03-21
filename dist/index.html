@@ -15,6 +15,7 @@
         <div class="header bg-zinc-800 p-5">
             <h1 class="text-white text-2xl font-semibold flex gap-5"><img src="./images/icon.svg" class="h-10 w-10">The "Get It Done!" List</h1>
         </div>
+        <!-- All sidebar items-->
         <div class="containerDisplaySidebar flex flex-1 sm:flex-row">
             <div class="sideBar bg-white pt-3"> 
                 <div class="selectDisplay flex flex-col gap-1 pb-3 ">
@@ -27,7 +28,11 @@
                     <div class="createProjectBtn flex flex-col"> 
                         <h2 class="font-semibold text-lg mx-auto pb-3">Projects</h2>                
                         <button class="newProjectBtn flex gap-3 items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
-                        <!-- <div class="projectBody"></div>  -->
+                        <div class="projectListHolder">
+                            <div class="projectList">
+                                <!-- append buttons as child elements -->
+                            </div>
+                        </div>
                     </div>
                     <div class="createProjectPopup relative text-center w-full" >
                         <div class="projectPopup hidden fixed -translate-x-1/2 translate-y-1/3 left-1/2 top-1/4 outline-2 outline-zinc-800 z-10" id="popupProject">
@@ -60,6 +65,7 @@
             </a> 
         </div>
     </div>
+    <script src="../src/Modules/add.js"></script>
     <script src="../src/Modules/form.js"></script>
     <script defer src="main.js"></script>
 </body>
