@@ -4,15 +4,36 @@
 // and receive input details from that form into the "Projectbody" as an innerHTML text, 
 // element, appendchild, li, ordered list, obj constructor or factory function
 
-function addedProject(title, details) { //This is a factory function that will create project objects
-    return {
-        title: title,
-        details: details,
-        getFullProject() {
-            return `${title} ${details}`;
-        }
-    }
-};
+// Add project list items variables
+
+const addProjectInputTitle = document.querySelector("#title");
+const addProjectInputDetails = document.querySelector("#details");
+const addProjectBtn = document.querySelector(".projBtnSubmit");
+const projListHolder = document.querySelector('.projectListHolder');
+
+addProjectBtn.addEventListener('click', () => {
+
+    const projList = projListHolder.querySelector('.projectList');
+    const newProjItem = document.createElement('button');
+
+    newProjItem.innerHTML = addProjectInputTitle.value;
+    projList.appendChild(newProjItem);
+    addProjectInputTitle.value = '';
+})
+
+// SUCCESS! MADE THE FORM WORK WITH VALUE FOR TITLE AS A NEW BUTTON APPENDED TO "PROJECTLIST"
+// NEXT - DO THE SAME FOR DETAILS AND TRY TO ADD SOME STYLING TO THE APPEDNED BUTTONS
+// THESE APPENDED BUTTONS WILL LATER HAVE THEIR OWN ONCLICK EVENTS.
+
+// function addedProject(title, details) { //This is a factory function that will create project objects
+//     return {
+//         title: title,
+//         details: details,
+//         getFullProject() {
+//             return `${title} ${details}`;
+//         }
+//     }
+// };
 
 // *To make user input into a new project object - input/#title/#details/submitbutton.(this.value) = trigger addedProject()
 // create project obj - ="Projectbody.inner.html (as a button?)= inputed new project obj as a button?
