@@ -10,20 +10,51 @@ const addProjectInputTitle = document.querySelector("#title");
 const addProjectInputDetails = document.querySelector("#details");
 const addProjectBtn = document.querySelector(".projBtnSubmit");
 const projListHolder = document.querySelector('.projectListHolder');
+const newProjItem = document.createElement('button');
+
+
 
 addProjectBtn.addEventListener('click', () => {
 
     const projList = projListHolder.querySelector('.projectList');
-    const newProjItem = document.createElement('button');
 
     newProjItem.innerHTML = addProjectInputTitle.value;
+    newProjItem.classList = "ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1";
     projList.appendChild(newProjItem);
     addProjectInputTitle.value = '';
+    createDelBtn(newProjItem);
+
 })
+
+const del = projList.children;
+
+function createDelBtn(newProjItem) {
+    const erase = document.createElement('button');
+    erase.textContent = 'x';
+    // erase.classList = "text-red-950 ml-2.5"; STYLING FOR X BUTTON NOT WORKING BUT AT LEAST THERE IS NOW A DELETE BUTTON!
+    newProjItem.appendChild(erase);
+    erase.addEventListener('click', function () {
+        this.parentElement.remove();
+    })
+    return newProjItem;
+}
+
+for (let i = 0; i < newProjItem; i++) {
+
+    createDelBtn(newProjItem[i]);
+}
+
+
+
+
 
 // SUCCESS! MADE THE FORM WORK WITH VALUE FOR TITLE AS A NEW BUTTON APPENDED TO "PROJECTLIST"
 // NEXT - DO THE SAME FOR DETAILS AND TRY TO ADD SOME STYLING TO THE APPEDNED BUTTONS
 // THESE APPENDED BUTTONS WILL LATER HAVE THEIR OWN ONCLICK EVENTS.
+
+// FIXED THE ALIGNMENT OF THE NEW CREATED LIST BUTTONS TO CENTER. 
+// NOW DO THE SAME FOR 'DETAILS'-IF NOT JUST REMOVE 'DETAILS'. NEXT 
+// MAKE EVER7Y NEW BUTTON HAVE A CLICK EVENT TO DISPLA7 ONTO DISPLAY.
 
 // function addedProject(title, details) { //This is a factory function that will create project objects
 //     return {
