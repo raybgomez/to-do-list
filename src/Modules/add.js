@@ -4,14 +4,19 @@ const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
 
-// This is an array OF OBJECTS that asK for an id and a name - this is the list of project titles which will display in the sidebar under 'projects'
-let lists = [{
-    id: 1,
-    name: 'name'
-}, {
-    id: 2,
-    name: 'ray'
-}];
+// For storage when creating new list items - Key:value
+const LOCAL_STORAGE_LIST_KEY = 'tasks.lists'
+const LOCAL_STORAGE_SELECTED_LIST_ID_KEY = 'tasks.selectedListID'
+let selectedListID = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY)
+// This is an storage array OF OBJECTS that asK for an id and a name - this is the list of project titles which will display in the sidebar under 'projects'. Or it will display an empty array.
+let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+
+listsContainer.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'li') {
+        selectedListID = e.target.dataset.listId
+        saveAndRender()
+    }
+})
 // Whenever you submit a title on the project form, this will push the new title into the lists array as an object with a unique date id, name and tasks array
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -20,9 +25,8 @@ newListForm.addEventListener('submit', e => {
     const list = createList(listName);
     newListInput.value = null;
     lists.push(list);
-    render()
+    saveAndRender()
 })
-
 // THIS IS AN OBJECT. This will add a unique date id, name, and open tasks array to each new project title added to the lists array above
 function createList(name) {
     return {
@@ -31,6 +35,16 @@ function createList(name) {
         tasks: [],
     }
 }
+// This will call the save and render function to save lists data and create new list data once the form is submitted.
+function saveAndRender() {
+    save();
+    render()
+}
+// This will save newly created project lists to local storage so that items don't disappear after refreshing the page.
+function save() {
+    localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
+    localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListID)
+}
 // This will append a new child li which the new project title with unique id, name and tasks []
 function render() {
     // <li class="list-name"
@@ -38,8 +52,11 @@ function render() {
     lists.forEach(list => {
         const listElement = document.createElement('li');
         listElement.dataset.listId = list.id;
-        listElement.classList.add("list-name");
+        listElement.className = "list-name flex gap-1 items-center ease-in-out duration-300  group rounded-lg p-2 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1 cursor-pointer";
         listElement.innerText = list.name;
+        if (list.id === selectedListID) {
+            listElement.className = 'active-list font-semibold'
+        }
         listsContainer.appendChild(listElement)
     })
 }
@@ -51,6 +68,26 @@ function clearElement(element) {
 }
 
 render()
+
+// Cursor pointer DOESNT WORK :(
+    // Worked on the data saving aspect for each new created project list. Next figure out the delete button and how I want it.
+    // ONce you get to the displaying of selected items, try doing the JS on a separate script, call that script to this page on top or add the script to the HTML
+    // You are doing so well and making progress! Keep it up!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // SO FAR THIS WORKS THE SAME AS THE CODE BELOW. FIGURE OUT A WAY TO MAKE THE FORM DISAPPEAR AFTER HITTING SUBMIT.
 //  NEXT STEP IN THE VIDEO IS SAVING DATA WHEN PAGE RELOADS. VIDEO - 10:35
