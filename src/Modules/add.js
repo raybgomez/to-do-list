@@ -47,17 +47,23 @@ function save() {
 }
 // This will append a new child li which the new project title with unique id, name and tasks []
 function render() {
-    // <li class="list-name"
     clearElement(listsContainer)
     lists.forEach(list => {
         const listElement = document.createElement('li');
         listElement.dataset.listId = list.id;
-        listElement.className = "list-name flex gap-1 items-center ease-in-out duration-300  group rounded-lg p-2 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1 cursor-pointer";
+        listElement.className = "list-name flex gap-5 ease-in-out duration-300  group rounded-lg p-2 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1";
         listElement.innerText = list.name;
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'x';
+        listElement.appendChild(deleteBtn);
+        deleteBtn.addEventListener('click', function () {
+            this.parentElement.remove()
+        })
         if (list.id === selectedListID) {
-            listElement.className = 'active-list font-semibold'
+            listElement.className = 'active-list font-semibold flex gap-5'
         }
         listsContainer.appendChild(listElement)
+
     })
 }
 // This will clear the project list if there are any old lists from beforehand - may not need this function since there are no project titles written in the HTML page
@@ -70,6 +76,11 @@ function clearElement(element) {
 render()
 
 // Cursor pointer DOESNT WORK :(
+    // ADDED DELETE X BUTTON, CAN'T STYLE THE X, CURSOR POINTER NOT WORKING, CAN'T CREATE A BIGGER GAP BETWEEN THE X AND TEXT
+    // ITEMS COME BACK WHEN PAGE IS REFRESHED
+    // NEXT WATCH VIDEO ON CREATING A DELETE BUTTON AND MOVE ON TO DISPLAY THINGS
+
+    
     // Worked on the data saving aspect for each new created project list. Next figure out the delete button and how I want it.
     // ONce you get to the displaying of selected items, try doing the JS on a separate script, call that script to this page on top or add the script to the HTML
     // You are doing so well and making progress! Keep it up!
