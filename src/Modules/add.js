@@ -3,6 +3,7 @@
 const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
+const deleteButton = document.querySelector('[data-delete-button]');
 
 // For storage when creating new list items - Key:value
 const LOCAL_STORAGE_LIST_KEY = 'tasks.lists'
@@ -27,6 +28,12 @@ newListForm.addEventListener('submit', e => {
     lists.push(list);
     saveAndRender()
 })
+// This will activate the delete button by creating a new list. New list is a product of a filtered list that doesn't include the selected list item with selectedListID
+deleteButton.addEventListener('click', () => {
+    lists = lists.filter(list => list.id !== selectedListID);
+    selectedListID = null;
+    saveAndRender()
+    })
 // THIS IS AN OBJECT. This will add a unique date id, name, and open tasks array to each new project title added to the lists array above
 function createList(name) {
     return {
@@ -45,27 +52,22 @@ function save() {
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListID)
 }
-// This will append a new child li which the new project title with unique id, name and tasks []
+// This will append a new child li with the new project title with unique id, name and tasks []
 function render() {
     clearElement(listsContainer)
     lists.forEach(list => {
         const listElement = document.createElement('li');
         listElement.dataset.listId = list.id;
-        listElement.className = "list-name flex gap-5 ease-in-out duration-300  group rounded-lg p-2 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1";
+        listElement.className = "list-name flex gap-5 ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1";
         listElement.innerText = list.name;
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'x';
-        listElement.appendChild(deleteBtn);
-        deleteBtn.addEventListener('click', function () {
-            this.parentElement.remove()
-        })
         if (list.id === selectedListID) {
-            listElement.className = 'active-list font-semibold flex gap-5'
+            listElement.className = 'active-list font-semibold flex gap-5 p-3'
         }
         listsContainer.appendChild(listElement)
 
     })
 }
+
 // This will clear the project list if there are any old lists from beforehand - may not need this function since there are no project titles written in the HTML page
 function clearElement(element) {
     while (element.firstChild) {
@@ -105,7 +107,12 @@ render()
 
 
 
-
+// const deleteBtn = document.createElement('button');
+//         deleteBtn.textContent = '---x';
+//         listElement.appendChild(deleteBtn);
+//         deleteBtn.addEventListener('click', function () {
+//             this.parentElement.remove();
+//         })
 
 
 
@@ -198,10 +205,11 @@ render()
 
 // } create task objs as radio buttons or check box buttons.
 
+// These 3 eventlistners work: 1. addEventListener('click', function () {}) 2. ('click', () => {}) 3. ('click', e => {})
 
 
 
-
+// function () { () => }{ () e => {}}
 
 
 
