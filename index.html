@@ -22,18 +22,18 @@
                     <button class="inbox flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/main.svg" class="h-10 w-10">Inbox</button>
                     <button class="today flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/today.svg" class="h-10 w-10">Today</button>
                     <button class="thisWeek flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/thisWeek.svg" class="h-10 w-10">This Week</button>
-                    <button class="completed flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/complete.svg" class="h-10 w-10">Completed</button>
                 </div>
                 <!-- MAYBE WILL ADD ONCLICK EVENT TO BUTTONS ABOVE TO MAKE THEM SEMIBOLD AND TURN TO ACTIVE LIST AND FUNCTION TO DISPLAY -->
                 <div class="projects">
                     <div class="createProjectBtn flex flex-col"> 
                         <h2 class="font-semibold text-lg mx-auto pb-1">Projects</h2>                
-                        <button class="newProjectBtn flex gap-3 items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
+                        <button class="newProjectBtn flex  items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
                         <div class="projectListHolder">
-                            <ul class="flex flex-col p-5 gap-1" data-lists>
+                            <ul class="flex flex-col px-3 gap-1 pb-5" data-lists>
                                 <!-- append buttons as child elements -->
                             </ul>
                         </div>
+                        <button class="deleteBtn flex mx-auto gap-2 mt-5 text-sm p-3 ease-in-out duration-300 group rounded-lg bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1" data-delete-button><img src="./images/trash.svg" class="h-5 w-5">Clear Selected</button>
                     </div>
                     <div class="createProjectPopup relative text-center w-full" >
                         <div class="projectPopup hidden fixed -translate-x-1/2 translate-y-1/3 left-1/2 top-1/4 outline-2 outline-zinc-800 z-10" id="popupProject">
