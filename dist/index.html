@@ -28,7 +28,7 @@
                     <div class="createProjectBtn flex flex-col"> 
                         <h2 class="font-semibold text-lg mx-auto pb-1">Projects</h2>                
                         <button class="newProjectBtn flex  items-center ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/newProject.svg" class="h-10 w-10">Create a new project</button>
-                        <div class="projectListHolder">
+                        <div class="projectListHolder p-5">
                             <ul class="flex flex-col px-3 gap-1 pb-5" data-lists>
                                 <!-- append buttons as child elements -->
                             </ul>
@@ -41,7 +41,7 @@
                                 <label for="title">Title</label>
                                 <input type="text" id="title" data-new-list-input name="title" class="w-full p-4 outline-none rounded-lg bg-slate-400" required>
                                 <button type="submit" class="projBtnSubmit ease-in-out duration-300 group block mx-auto rounded-lg p-6 bg-green-600 text-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:scale-125">Create</button>
-                                <button type="button" class="projBtnCancel ease-in-out duration-300 group block mx-auto rounded-lg p-6 bg-red-500 text-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:scale-125" onClick="closeForm()">Cancel</button>
+                                <button type="button" class="projBtnCancel ease-in-out duration-300 group block mx-auto rounded-lg p-6 bg-red-500 text-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:scale-125">Cancel</button>
                             </form>
                         </div>
                     </div>
@@ -49,13 +49,16 @@
             </div>           
                 
                
-            <div class="display bg-slate-50 flex-1">
-                <div class="selectedDisplay pt-5">
-                    <!-- h2? Display the title of the button selected in div selectDisplay -->
+            <div class="display bg-slate-50 flex-1" data-list-display-container>
+                <div class="todoHeader pt-10 pb-5 text-center font-semibold text-2xl">
+                    <h2 class="listTitle" data-list-title>Name of Selected</h2>
 
-                    <button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300" onClick="addTask()">Add Task</button>
-                    <div class="taskBody"></div>    
                 </div>
+                <div class="taskBody pt-5">
+                    <button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300" onClick="addTask()">Add Task</button>
+
+                </div>    
+                
             </div> 
         </div>
         <div class="footer flex gap-2 p-3 bg-zinc-800 mx-auto">
@@ -66,6 +69,7 @@
     </div>
     <script src="../src/Modules/add.js"></script>
     <script src="../src/Modules/form.js"></script>
+    <script src="../src/Modules/display.js"></script>
     <script defer src="main.js"></script>
 </body>
 </html>
