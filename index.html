@@ -49,13 +49,20 @@
             </div>           
                 
                
-            <div class="display bg-slate-50 flex-1" data-list-display-container>
+            <div class="display bg-slate-50 flex-1" data-display-container>
                 <div class="todoHeader pt-10 pb-5 text-center font-semibold text-2xl">
                     <h2 class="listTitle" data-list-title>Name of Selected</h2>
 
                 </div>
                 <div class="taskBody pt-5">
-                    <button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300" onClick="addTask()">Add Task</button>
+                    <div class="tasks text-center pb-5" data-tasks-container>
+                        <form action="">
+                            <label for="task-input">New Task</label>
+                            <input class="bg-slate-50 border-solid border-2 border-b-black" id="task-input" type="text" name="input" spellcheck="false" title="Enter your new task." onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
+                        </form>
+                        <!-- tailwind css for input borderline not working -->
+                    </div>
+                    <button data-task-button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300">Add Task</button>
 
                 </div>    
                 
