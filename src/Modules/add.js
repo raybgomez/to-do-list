@@ -52,21 +52,8 @@ function save() {
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListID)
 }
-// This will append a new child li with the new project title with unique id, name and tasks []
-function render() {
-    clearElement(listsContainer)
-    lists.forEach(list => {
-        const listElement = document.createElement('li');
-        listElement.dataset.listId = list.id;
-        listElement.className = "list-name flex gap-5 ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1";
-        listElement.innerText = list.name;
-        if (list.id === selectedListID) {
-            listElement.className = 'active-list font-semibold flex gap-5 p-3'
-        }
-        listsContainer.appendChild(listElement)
 
-    })
-}
+
 
 // This will clear the project list if there are any old lists from beforehand - may not need this function since there are no project titles written in the HTML page
 function clearElement(element) {
