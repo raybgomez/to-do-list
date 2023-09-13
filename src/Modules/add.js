@@ -4,6 +4,13 @@ const listsContainer = document.querySelector('[data-lists]');
 const newListForm = document.querySelector('[data-new-list-form]');
 const newListInput = document.querySelector('[data-new-list-input]');
 const deleteButton = document.querySelector('[data-delete-button]');
+const listDisplayContainer = document.querySelector('[data-display-container]');
+const listTitleElement = document.querySelector('[data-list-title]');
+const tasksContainer = document.querySelector('[data-tasks]');
+const taskTemplate = document.getElementById('task-template');
+
+
+
 
 // For storage when creating new list items - Key:value
 const LOCAL_STORAGE_LIST_KEY = 'tasks.lists'
@@ -39,7 +46,11 @@ function createList(name) {
     return {
         id: Date.now().toString(),
         name: name,
-        tasks: [],
+        tasks: [{
+            id:'Whazzup!',
+            name: 'Task',
+            complete: false,
+        }],
     }
 }
 // This will call the save and render function to save lists data and create new list data once the form is submitted.
@@ -52,9 +63,52 @@ function save() {
     localStorage.setItem(LOCAL_STORAGE_LIST_KEY, JSON.stringify(lists))
     localStorage.setItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY, selectedListID)
 }
+// This will display tasks and title
+function render() {
+    renderLists()
+    const selectedList = lists.find(list => list.id === selectedListID)
+    if (selectedListID == null) {
+        listDisplayContainer.style.display = 'none'
+    }else{
+        listDisplayContainer.style.display = ''
+        listTitleElement.innerHTML = selectedList.name
+        clearElement(tasksContainer)
+        renderTasks(selectedList)
 
+    }
+}
+// This will display tasks within each project
+function renderTasks(selectedList) {
+    selectedList.tasks.forEach(task =>{
+        // The below variable makes it so we don't have to write out each task checkbox in javascript, but rather duplicate a pre-written template in HTML to pass on to the webpage.
+        // BELOW IMPORTNODE NOT REGISTERING!!!!!!!!
+        const taskElement = document.importNode(taskTemplate.content, true) 
+        const checkBox = taskElement.querySelector('input')
+        checkBox.id = task.id
+        checkBox.checked = task.complete
+        const label = taskElement.querySelector('label')
+        label.htmlFor = task.id
+        label.append(task.name)
+        tasksContainer.appendChild(taskElement)
+    })
+}
+    
+// This will ensure that a newly created project item will remain even when the page is refreshed.
+function renderLists() {
+    clearElement(listsContainer);
+    lists.forEach(list => {
+        const listElement = document.createElement('li');
+        listElement.dataset.listId = list.id;
+        listElement.className = "list-name flex gap-5 ease-in-out duration-300  group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1";
+        listElement.innerText = list.name;
+        if (list.id === selectedListID) {
+            listElement.className = 'active-list font-semibold flex gap-5 p-3';
+            
+        }
+        listsContainer.appendChild(listElement)
 
-
+    })
+}
 // This will clear the project list if there are any old lists from beforehand - may not need this function since there are no project titles written in the HTML page
 function clearElement(element) {
     while (element.firstChild) {
