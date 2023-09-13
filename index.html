@@ -49,23 +49,65 @@
             </div>           
                 
                
-            <div class="display bg-slate-50 flex-1" data-display-container>
-                <div class="todoHeader pt-10 pb-5 text-center font-semibold text-2xl">
-                    <h2 class="listTitle" data-list-title>Name of Selected</h2>
-
-                </div>
-                <div class="taskBody pt-5">
-                    <div class="tasks text-center pb-5" data-tasks-container>
-                        <form action="">
-                            <label for="task-input">New Task</label>
-                            <input class="bg-slate-50 border-solid border-2 border-b-black" id="task-input" type="text" name="input" spellcheck="false" title="Enter your new task." onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
-                        </form>
-                        <!-- tailwind css for input borderline not working -->
+            <div class="display bg-slate-50 flex-1" >
+                <div data-display-container>
+                    <div class="todoHeader pt-10 pb-5 text-center font-semibold text-2xl">
+                        <h2 class="listTitle" data-list-title>Name of Selected</h2>
                     </div>
-                    <button data-task-button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300">Add Task</button>
+                    <div class="taskBody pt-5">
+                        <div class="tasks text-center pb-5" data-tasks>
+                            <div class="task">
+                                <input 
+                                    type="checkbox" 
+                                    id="task-1"
+                                />
+                                <label for="task-1">
+                                    <span class="custom-checkbox"></span>
+                                    Call recruiter
+                                </label>
+                            </div>
+                            <!-- /task-1 -->
+                            <div class="task">
+                                <input 
+                                    type="checkbox" 
+                                    id="task-2"
+                                />
+                                <label for="task-2">
+                                    <span class="custom-checkbox"></span>
+                                    Pay phone bill
+                                </label>
+                            </div>
+                            <!-- /task-2 -->
+                            <div class="task">
+                                <input 
+                                    type="checkbox" 
+                                    id="task-3"
+                                />
+                                <label for="task-3">
+                                    <span class="custom-checkbox"></span>
+                                    Complete ChatGPT course
+                                </label>
+                            </div>
+                            <!-- /task-3 -->
+                        </div>
+                        <div class="text-center" data-new-task-creator>
+                            <form action="">
+                                <label class="text-2xl font-bold" for="task-input">+</label>
+                                <input 
+                                    class="bg-slate-50 border-b-4 border-b-black" 
+                                    id="task-input" 
+                                    type="text" 
+                                    name="input" 
+                                    title="Enter your new task" 
+                                    onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
+                            </form>
+                            <!-- Create checkbox list dynamically with a function - createElement (input and label) - call this function via the enter key with the input.value as the new task name. Refer to weather app on adding value with enter key to become  check list item -->
 
-                </div>    
-                
+                        </div>
+                        <!-- <button data-task-button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300">+</button> -->
+
+                    </div>    
+                </div>
             </div> 
         </div>
         <div class="footer flex gap-2 p-3 bg-zinc-800 mx-auto">
@@ -74,10 +116,20 @@
             </a> 
         </div>
     </div>
+    
     <script src="../src/Modules/add.js"></script>
     <script src="../src/Modules/form.js"></script>
     <script src="../src/Modules/display.js"></script>
     <script defer src="main.js"></script>
+    
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox"/>
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
 </body>
 </html>
 <!-- SVGs from https://www.svgrepo.com/  and www.github.com/logos-->
