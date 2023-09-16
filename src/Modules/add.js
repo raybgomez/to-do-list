@@ -9,6 +9,9 @@ const listTitleElement = document.querySelector('[data-list-title]');
 const tasksContainer = document.querySelector('[data-tasks]');
 const taskTemplate = document.getElementById('task-template');
 
+const newTaskForm = document.querySelector('[data-new-task-form]');
+const newTaskInput = document.querySelector('[data-new-task-input]');
+const clearCompleteTasksButton = document.querySelector ('[data-clear-complete-tasks-button]')
 
 
 
@@ -35,24 +38,50 @@ newListForm.addEventListener('submit', e => {
     lists.push(list);
     saveAndRender()
 })
+
+// This will create a new task item into the list
+newTaskForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const taskName = newTaskInput.value;
+    if (taskName == null || taskName === '') return
+    const task = createTask(taskName);
+    newTaskInput.value = null;
+    const selectedList = lists.find(list => list.id === selectedListID)
+    selectedList.tasks.push(task)
+    saveAndRender()
+})
+
+// THIS IS AN OBJECT. This will add a unique date id, name, and open tasks array to each new project title added to the lists array above
+function createList(name) {
+    return {
+        id: Date.now().toString(),
+        name: name,
+        tasks: [],
+    }
+}
+
+// THIS IS AN OBJECT. This will add a unique date id, name, and incomplete array to each new task title added to the Tasks list
+function createTask(name) {
+    return {
+        id: Date.now().toString(),
+        name: name,
+        complete: false,
+    }
+}
+// BELOW NOT WORKING! DELETES THE CHECK IN THE BOX BUT NOT THE WHOLE WORDED TASK!!!
+clearCompleteTasksButton.addEventListener('click', e => {
+    const selectedList = lists.find(list => list.id === selectedListID)
+    selectedList.tasks = selectedList.tasks.filter(task => !task.complete)
+    saveAndRender()
+})
+
 // This will activate the delete button by creating a new list. New list is a product of a filtered list that doesn't include the selected list item with selectedListID
 deleteButton.addEventListener('click', () => {
     lists = lists.filter(list => list.id !== selectedListID);
     selectedListID = null;
     saveAndRender()
     })
-// THIS IS AN OBJECT. This will add a unique date id, name, and open tasks array to each new project title added to the lists array above
-function createList(name) {
-    return {
-        id: Date.now().toString(),
-        name: name,
-        tasks: [{
-            id:'Whazzup!',
-            name: 'Task',
-            complete: false,
-        }],
-    }
-}
+
 // This will call the save and render function to save lists data and create new list data once the form is submitted.
 function saveAndRender() {
     save();
@@ -79,9 +108,8 @@ function render() {
 }
 // This will display tasks within each project
 function renderTasks(selectedList) {
-    selectedList.tasks.forEach(task =>{
+    selectedList.tasks.forEach(task => {
         // The below variable makes it so we don't have to write out each task checkbox in javascript, but rather duplicate a pre-written template in HTML to pass on to the webpage.
-        // BELOW IMPORTNODE NOT REGISTERING!!!!!!!!
         const taskElement = document.importNode(taskTemplate.content, true) 
         const checkBox = taskElement.querySelector('input')
         checkBox.id = task.id
