@@ -33,8 +33,8 @@
                                 <!-- append buttons as child elements -->
                             </ul>
                         </div>
-                        <button class="deleteBtn flex mx-auto gap-2 mt-5 text-sm p-3 ease-in-out duration-300 group rounded-lg bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1" data-delete-button><img src="./images/trash.svg" class="h-5 w-5">Clear Selected</button>
-                    </div>
+                        <button class="deleteBtn flex mx-auto gap-2 mt-5 text-sm p-3 ease-in-out duration-300 group rounded-lg bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1" data-delete-button><img src="./images/trash.svg" class="h-5 w-5">Delete Project</button>
+                        </div>
                     <div class="createProjectPopup relative text-center w-full" >
                         <div class="projectPopup hidden fixed -translate-x-1/2 translate-y-1/3 left-1/2 top-1/4 outline-2 outline-zinc-800 z-10" id="popupProject">
                             <form class="projFormContainer max-w-sm p-5 bg-white" data-new-list-form >
@@ -91,20 +91,21 @@
                             <!-- /task-3 -->
                         </div>
                         <div class="text-center" data-new-task-creator>
-                            <form action="">
+                            <form action="" data-new-task-form>
                                 <label class="text-2xl font-bold" for="task-input">+</label>
                                 <input 
                                     class="bg-slate-50 border-b-4 border-b-black" 
                                     id="task-input" 
                                     type="text" 
+                                    data-new-task-input
                                     name="input" 
                                     title="Enter your new task" 
                                     onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
                             </form>
-                            <!-- Create checkbox list dynamically with a function - createElement (input and label) - call this function via the enter key with the input.value as the new task name. Refer to weather app on adding value with enter key to become  check list item -->
-
                         </div>
-                        <!-- <button data-task-button class="addTask ease-in-out duration-300 group block mx-auto rounded-full p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-yellow-300 hover:ring-yellow-300">+</button> -->
+                        <div>
+                            <button class="deleteBtn flex mx-auto gap-2 mt-5 text-sm p-3 ease-in-out duration-300 group rounded-lg bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1" data-clear-complete-tasks-button><img src="./images/trash.svg" class="h-5 w-5">Delete Completed Tasks</button>
+                        </div>
 
                     </div>    
                 </div>
@@ -117,11 +118,6 @@
         </div>
     </div>
     
-    <script src="../src/Modules/add.js"></script>
-    <script src="../src/Modules/form.js"></script>
-    <script src="../src/Modules/display.js"></script>
-    <script defer src="main.js"></script>
-    
     <template id="task-template">
         <div class="task">
             <input type="checkbox"/>
@@ -130,6 +126,11 @@
             </label>
         </div>
     </template>
+
+    <script src="../src/Modules/add.js"></script>
+    <script src="../src/Modules/form.js"></script>
+    <script src="../src/Modules/display.js"></script>
+    <script defer src="main.js"></script>
 </body>
 </html>
 <!-- SVGs from https://www.svgrepo.com/  and www.github.com/logos-->
