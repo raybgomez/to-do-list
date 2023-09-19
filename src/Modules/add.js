@@ -28,6 +28,15 @@ listsContainer.addEventListener('click', e => {
         saveAndRender()
     }
 })
+// This will save that the task was checked when page refreshed
+tasksContainer.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase() === 'input'){
+        const selectedList = lists.find(list => list.id === selectedListID)
+        const selectedTask = selectedList.tasks.find(task => task.id === e.target.id)
+        selectedTask.complete = e.target.checked
+        save()
+    }
+})
 // Whenever you submit a title on the project form, this will push the new title into the lists array as an object with a unique date id, name and tasks array
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -69,7 +78,7 @@ function createTask(name) {
     }
 }
 // BELOW NOT WORKING! DELETES THE CHECK IN THE BOX BUT NOT THE WHOLE WORDED TASK!!!
-clearCompleteTasksButton.addEventListener('click', e => {
+clearCompleteTasksButton.addEventListener('click', () => {
     const selectedList = lists.find(list => list.id === selectedListID)
     selectedList.tasks = selectedList.tasks.filter(task => !task.complete)
     saveAndRender()

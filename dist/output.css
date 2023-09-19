@@ -697,6 +697,22 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.tasks.text-left.pb-5 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task {
+  padding: 2px
+}
+
+[type="checkbox"]:checked+label {
+  opacity: 0.5;
+  text-decoration: line-through
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }

@@ -18,11 +18,11 @@
         <!-- All sidebar items-->
         <div class="containerDisplaySidebar flex flex-1 sm:flex-row">
             <div class="sideBar bg-white pt-3"> 
-                <div class="selectDisplay flex flex-col gap-1 pb-3 ">
+                <!-- <div class="selectDisplay flex flex-col gap-1 pb-3 ">
                     <button class="inbox flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/main.svg" class="h-10 w-10">Inbox</button>
                     <button class="today flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/today.svg" class="h-10 w-10">Today</button>
                     <button class="thisWeek flex gap-1 items-center ease-in-out duration-300 group rounded-lg p-3 bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1"><img src="./images/thisWeek.svg" class="h-10 w-10">This Week</button>
-                </div>
+                </div> -->
                 <!-- MAYBE WILL ADD ONCLICK EVENT TO BUTTONS ABOVE TO MAKE THEM SEMIBOLD AND TURN TO ACTIVE LIST AND FUNCTION TO DISPLAY -->
                 <div class="projects">
                     <div class="createProjectBtn flex flex-col"> 
@@ -55,7 +55,8 @@
                         <h2 class="listTitle" data-list-title>Name of Selected</h2>
                     </div>
                     <div class="taskBody pt-5">
-                        <div class="tasks text-center pb-5" data-tasks>
+                        <div class="tasks text-left pb-5" data-tasks>
+                            <!-- Append tasks as child elements -->
                             <div class="task">
                                 <input 
                                     type="checkbox" 
@@ -92,15 +93,13 @@
                         </div>
                         <div class="text-center" data-new-task-creator>
                             <form action="" data-new-task-form>
-                                <label class="text-2xl font-bold" for="task-input">+</label>
+                                <span class="text-2xl font-bold">+</span>
                                 <input 
                                     class="bg-slate-50 border-b-4 border-b-black" 
-                                    id="task-input" 
                                     type="text" 
                                     data-new-task-input
-                                    name="input" 
-                                    title="Enter your new task" 
-                                    onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
+                                />
+                                <button class="btn create" aria-label="create new task"></button>
                             </form>
                         </div>
                         <div>
@@ -134,3 +133,13 @@
 </body>
 </html>
 <!-- SVGs from https://www.svgrepo.com/  and www.github.com/logos-->
+
+<!--  -->
+<!-- <form action="" data-new-task-form>
+    <label class="text-2xl font-bold" for="task-input">+</label>
+    <input 
+        class="bg-slate-50 border-b-4 border-b-black" 
+        type="text" 
+        data-new-task-input
+        onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
+</form> -->
