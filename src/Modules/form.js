@@ -7,12 +7,12 @@ function addProject() {
     document.getElementById("popupProject").style.display = "block";
 }
 
-let closeProjectBtn = document.querySelector(".projBtnCancel"); //change to closeBtn, .cancelBtn
+let closeProjectBtn = document.querySelector(".projBtnCancel");
 closeProjectBtn.addEventListener("click", closeForm);
 
 const createProjectBtn = document.querySelector(".projBtnSubmit");
 createProjectBtn.addEventListener('click', closeForm)
 
 function closeForm() {
-    document.getElementById("popupProject").style.display = "none"; //change to querySelectorAll (#popupProject and #popupTask)
+    document.getElementById("popupProject").style.display = "none";
 }
