@@ -794,6 +794,10 @@ video {
   --tw-ring-color: rgb(15 23 42 / 0.05);
 }
 
+div#popupProject {
+  border-width: medium;
+}
+
 .duration-300 {
   transition-duration: 300ms;
 }
@@ -804,6 +808,14 @@ video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button.newProjectBtn {
+  background: rgba(47, 255, 85, 0.749)
+}
+
+li {
+  cursor: pointer;
 }
 
 .hover\:rotate-180:hover {
