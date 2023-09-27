@@ -2,8 +2,9 @@
   "name": "y",
   "version": "1.0.0",
   "description": "A virtual todo list",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
+    "start": "webpack",
     "build:tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "author": "",

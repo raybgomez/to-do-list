@@ -1,18 +1,22 @@
 
 //Create Variables, this is for the create projects button
-let newProjectBtn = document.querySelector(".newProjectBtn");
-newProjectBtn.addEventListener("click", addProject);
 
-function addProject() {
-    document.getElementById("popupProject").style.display = "block";
+export function form() {
+
+    const newProjectBtn = document.querySelector(".newProjectBtn");
+    const closeProjectBtn = document.querySelector(".projBtnCancel");
+    const createProjectBtn = document.querySelector(".projBtnSubmit");
+
+    newProjectBtn.addEventListener("click", addProject);
+    closeProjectBtn.addEventListener("click", closeForm);
+    createProjectBtn.addEventListener('click', closeForm)
+
+    function addProject() {
+        document.getElementById("popupProject").style.display = "block";
+    }
+    function closeForm() {
+        document.getElementById("popupProject").style.display = "none";
+    }
 }
 
-let closeProjectBtn = document.querySelector(".projBtnCancel");
-closeProjectBtn.addEventListener("click", closeForm);
 
-const createProjectBtn = document.querySelector(".projBtnSubmit");
-createProjectBtn.addEventListener('click', closeForm)
-
-function closeForm() {
-    document.getElementById("popupProject").style.display = "none";
-}
