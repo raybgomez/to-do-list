@@ -33,7 +33,7 @@ You will need a web browser to view this project. No set up required. Works best
 
 ## Live Demo
 
-<https://raybgomez.github.io/Weather-project/>
+<!-- <https://raybgomez.github.io/to-do-list/> -->
 
 Deployed on [GitHub Pages](https://pages.github.com/) 
 

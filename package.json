@@ -1,15 +1,22 @@
 {
-  "name": "y",
+  "name": "to-do-list",
   "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/raybgomez/to-do-list.git"
+  },
   "description": "A virtual todo list",
   "main": "index.js",
   "scripts": {
     "start": "webpack",
-    "build:tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "build:tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "tailwindcss": "^3.2.7",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
