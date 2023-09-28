@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" ="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="content bg-zinc-800 flex flex-col min-h-screen">
+        <div class="header bg-zinc-800 p-5">
+            <h1 class="text-white text-2xl font-semibold flex gap-5"><img src="./images/icon.svg" class="h-10 w-10">The "Get It Done!" List</h1>
+        </div>
+        <!-- All sidebar items-->
+        <div class="containerDisplaySidebar flex flex-1 sm:flex-row">
+            <div class="sideBar bg-white pt-3"> 
+                <div class="projects">
+                    <div class="createProjectBtn flex flex-col"> 
+                        <h2 class="font-semibold text-lg mx-auto pb-1">Projects</h2>                
+                        <button class="newProjectBtn flex  items-center ease-in-out duration-300  group rounded-lg p-3 hover:shadow-lg hover: ring-slate-900/5 hover:ring-1">Create a new project</button>
+                        <div class="projectListHolder p-5">
+                            <ul class="flex flex-col px-3 gap-1 pb-5" data-lists>
+                                <!-- append projects as child elements -->
+                            </ul>
+                        </div>
+                        <button class="deleteBtn flex mx-auto gap-2 mt-5 text-sm p-3 ease-in-out duration-300 group rounded-lg bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1" data-delete-button>
+                            <img src="./images/trash.svg" class="h-5 w-5">Delete Project</button>
+                        </div>
+                    <div class="createProjectPopup relative text-center w-full" >
+                        <div class="projectPopup hidden fixed -translate-x-1/2 translate-y-1/3 left-1/2 top-1/4 outline-2 rounded-lg outline-zinc-800 z-10" id="popupProject">
+                            <form class="projFormContainer max-w-sm p-5 bg-white border-black" data-new-list-form >
+                                <label for="title">Project Title</label>
+                                <input type="text" id="title" data-new-list-input name="title" class="w-full p-3 outline-none rounded-lg bg-slate-400" required>
+                                <button type="submit" class="projBtnSubmit "></button>
+                                <button type="button" class="projBtnCancel ease-in-out duration-300 group block mx-auto rounded-lg p-3 bg-red-500 text-white ring-1 ring-slate-900/5 shadow-lg space-y-1 hover:scale-125">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>           
+            <div class="display bg-slate-50 flex-1" >
+                <div data-display-container>
+                    <div class="todoHeader pt-10 pb-5 text-center font-semibold text-2xl">
+                        <h2 class="listTitle" data-list-title></h2>
+                    </div>
+                    <div class="taskBody pt-5">
+                        <div class="tasks text-left pb-5" data-tasks></div>
+                        <div class="text-center" data-new-task-creator>
+                            <form action="" data-new-task-form>
+                                <span class="plus-sign text-2xl font-bold">+</span>
+                                <input 
+                                    class="bg-slate-50 border-b-4 border-b-black" 
+                                    type="text" 
+                                    id="new-task-input"
+                                    data-new-task-input
+                                />
+                                <button class="btn create" aria-label="create new task"></button>
+                            </form>
+                        </div>
+                        <div>
+                            <button class="deleteBtn flex mx-auto gap-2 mt-5 text-sm p-3 ease-in-out duration-300 group rounded-lg bg-white hover:shadow-lg hover: ring-slate-900/5 hover:ring-1" data-clear-complete-tasks-button><img src="./images/trash.svg" class="h-5 w-5">Delete Completed Tasks</button>
+                        </div>
+                    </div>    
+                </div>
+            </div> 
+        </div>
+        <div class="footer flex gap-2 p-3 bg-zinc-800 mx-auto">
+            <span class="text-white text-sm">Copyright &copy 2023 RaybGomez</span> 
+            <a href="https://github.com/raybgomez" target="_blank"><img src="./images/github.svg" class="h-5 w-5 hover:rotate-[360deg] hover:scale-125 ease-in-out duration-300"/>
+            </a> 
+        </div>
+    </div>
+    
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox"/>
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
+
+   
+    <script defer src="/dist/main.js"></script>
+
+</body>
+</html>
+<!-- SVGs from https://www.svgrepo.com/  and www.github.com/logos-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Notes for myself -->
+<!-- <form action="" data-new-task-form>
+    <label class="text-2xl font-bold" for="task-input">+</label>
+    <input 
+        class="bg-slate-50 border-b-4 border-b-black" 
+        type="text" 
+        data-new-task-input
+        onkeydown="return /[a-zA-Z 0-9]/i.test(event.key)" required/>
+</form> -->
