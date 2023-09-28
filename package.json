@@ -7,7 +7,7 @@
   "description": "A virtual todo list",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "webpack --config webpack.config.js",
     "build:tailwind": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "build": "webpack --mode=development",
     "predeploy": "npm run build",
@@ -16,7 +16,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^6.8.1",
     "gh-pages": "^6.0.0",
+    "style-loader": "^3.3.3",
     "tailwindcss": "^3.2.7",
     "webpack": "^5.76.1",
     "webpack-cli": "^5.0.1"
