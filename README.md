@@ -1,10 +1,3 @@
-# to-do-list
-A virtual todo list
-My first time using webpack, node.js, json files, and tailwind css. Tailwind styling didn't always work so I had to manipulate the input.css file for certain styles to activate.
-Using Webpack default configuration and splitting up your development files and ES6 import and export features
-Using Tailwind css
-npm start
-
 # To-do-List
 
 ### This is a basic to-do list app.
@@ -33,24 +26,25 @@ You will need a web browser to view this project. No set up required. Works best
 
 ## Live Demo
 
-<https://raybgomez.github.io/Weather-project/>
+<https://raybgomez.github.io/to-do-list/>
 
 Deployed on [GitHub Pages](https://pages.github.com/) 
 
 ### Usage
 
-Click on the above live demo link. You will see a searchbox labeled "Enter US City Name"
-- **Step 1**. Type in the name of a US city. No need to type in the state.
-- **Step 2**. Hit the enter key. City name will display below.
-- **Step 3**. Current temperature will display at the top of the box.
-- **Step 4**. Display the weather condition by clicking the "Show Condition" link at the bottom.
-- **Step 5**. Click "Show Temperature" to display the current temperature again.
+Click on the above live demo link. You will see a green button labeled "Create a new project".
+- **Step 1**. A form will appear. Type in the name of your new project and hit the enter key.
+- **Step 2**. The project name will appear on the sidebar. Select the name to display it on the right.
+- **Step 3**. Next to the "+" sign, type in your new task, then hit the enter key.
+- **Step 4**. You can write in as many tasks as you'd like. Click the checkbox when task is complete.
+- **Step 5**. To delete all completed tasks, click the "Delete Completed Tasks" button.
+- **Step 6**. To delete a project, click the "Delete Project" button.
+- **Optional**. To visit my Github page, click on the Github icon on the bottom of the page.
 
- 
 
 ## Acknowledgement
 
-To do list lesson by [Web Dev Simplified](https://courses.webdevsimplified.com/)
+To do list lesson by [Web Dev Simplified](https://courses.webdevsimplified.com/) and Webpack for beginners lesson by [freeCodeCamp](https://www.freecodecamp.org)
 
 ## Contributing
 
